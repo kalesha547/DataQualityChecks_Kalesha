@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "transactions-mcp": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${workspaceFolder}/mcp/server.js"],
+      "env": {}
+    }
+  }
+}

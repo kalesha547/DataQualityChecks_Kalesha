@@ -1,0 +1,124 @@
+@host = https://localhost:5001
+@contentType = application/json
+
+### Health Check
+GET {{host}}/api/query/health
+Accept: {{contentType}}
+
+###
+### Execute Simple Query
+POST {{host}}/api/query/execute
+Content-Type: {{contentType}}
+
+{
+  "query": "SELECT @@SERVERNAME AS ServerName, DB_NAME() AS DatabaseName, CURRENT_USER AS CurrentUser, GETDATE() AS ServerTime",
+  "pageNumber": 1,
+  "pageSize": 100,
+  "commandTimeout": 30
+}
+
+###
+### Execute Query with Pagination (Page 1)
+POST {{host}}/api/query/execute
+Content-Type: {{contentType}}
+
+{
+  "query": "SELECT * FROM (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS RowNum, * FROM sys.objects) AS temp WHERE RowNum > 0",
+  "pageNumber": 1,
+  "pageSize": 10
+}
+
+###
+### Execute Query with Pagination (Page 2)
+POST {{host}}/api/query/execute
+Content-Type: {{contentType}}
+
+{
+  "query": "SELECT * FROM (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS RowNum, * FROM sys.objects) AS temp WHERE RowNum > 0",
+  "pageNumber": 2,
+  "pageSize": 10
+}
+
+###
+### Execute Query with Custom Timeout
+POST {{host}}/api/query/execute
+Content-Type: {{contentType}}
+
+{
+  "query": "SELECT TOP 5 name, create_date FROM sys.databases ORDER BY create_date DESC",
+  "pageNumber": 1,
+  "pageSize": 100,
+  "commandTimeout": 60
+}
+
+###
+### Test Invalid Query - Denied (DELETE)
+POST {{host}}/api/query/execute
+Content-Type: {{contentType}}
+
+{
+  "query": "DELETE FROM sys.objects WHERE name = 'test'"
+}
+
+###
+### Test Invalid Query - Denied (DROP)
+POST {{host}}/api/query/execute
+Content-Type: {{contentType}}
+
+{
+  "query": "DROP TABLE TestTable"
+}
+
+###
+### Test Invalid Query - Denied (SQL Injection Pattern)
+POST {{host}}/api/query/execute
+Content-Type: {{contentType}}
+
+{
+  "query": "SELECT * FROM users; DROP TABLE users"
+}
+
+###
+### Test Invalid Query - Empty Query
+POST {{host}}/api/query/execute
+Content-Type: {{contentType}}
+
+{
+  "query": ""
+}
+
+###
+### Test Query with System Views
+POST {{host}}/api/query/execute
+Content-Type: {{contentType}}
+
+{
+  "query": "SELECT TOP 10 name, type, create_date FROM sys.all_objects ORDER BY create_date DESC",
+  "pageNumber": 1,
+  "pageSize": 10
+}
+
+###
+### Test Query with Multiple Columns
+POST {{host}}/api/query/execute
+Content-Type: {{contentType}}
+
+{
+  "query": "SELECT database_id, name, state, recovery_model FROM sys.databases WHERE database_id > 4",
+  "pageNumber": 1,
+  "pageSize": 50
+}
+
+###
+### Test Large Page Size (Maximum 1000)
+POST {{host}}/api/query/execute
+Content-Type: {{contentType}}
+
+{
+  "query": "SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS",
+  "pageNumber": 1,
+  "pageSize": 1000
+}
+
+###
+

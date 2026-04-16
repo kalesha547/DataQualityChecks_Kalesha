@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "nuJZcdt1xq8GzC1DX6RVYGfGlnfRXEvEdoWkUinomGk=",
+  "Source": "SqlQueryAPI",
+  "BasePath": "_content/SqlQueryAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

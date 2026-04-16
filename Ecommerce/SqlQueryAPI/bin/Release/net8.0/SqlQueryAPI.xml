@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SqlQueryAPI</name>
+    </assembly>
+    <members>
+        <member name="T:SqlQueryAPI.Controllers.QueryController">
+            <summary>
+            API controller for executing SQL queries
+            </summary>
+        </member>
+        <member name="M:SqlQueryAPI.Controllers.QueryController.ExecuteQuery(SqlQueryAPI.Models.QueryRequest)">
+             <summary>
+             Executes a SQL query and returns results in JSON format
+             </summary>
+             <param name="request">The query request containing SQL and pagination parameters</param>
+             <returns>Query results with metadata and pagination information</returns>
+             <remarks>
+             Sample request:
+            
+                 POST /api/query/execute
+                 {
+                   "query": "SELECT * FROM YourTable WHERE Status = 'Active'",
+                   "pageNumber": 1,
+                   "pageSize": 100,
+                   "commandTimeout": 30
+                 }
+            
+             Note: Only SELECT queries are allowed. Other operations (INSERT, UPDATE, DELETE, DROP, etc.) are blocked for security.
+             </remarks>
+        </member>
+        <member name="M:SqlQueryAPI.Controllers.QueryController.Health">
+            <summary>
+            Health check endpoint
+            </summary>
+            <returns>Simple health status</returns>
+        </member>
+        <member name="T:SqlQueryAPI.Exceptions.DatabaseException">
+            <summary>
+            Exception thrown when database operations fail
+            </summary>
+        </member>
+        <member name="T:SqlQueryAPI.Exceptions.InvalidQueryException">
+            <summary>
+            Exception thrown when a SQL query is invalid or dangerous
+            </summary>
+        </member>
+        <member name="T:SqlQueryAPI.Models.PaginationInfo">
+            <summary>
+            Pagination information for query results
+            </summary>
+        </member>
+        <member name="T:SqlQueryAPI.Models.QueryRequest">
+            <summary>
+            Request model for executing SQL queries
+            </summary>
+        </member>
+        <member name="P:SqlQueryAPI.Models.QueryRequest.Query">
+            <summary>
+            The SQL query to execute
+            </summary>
+        </member>
+        <member name="P:SqlQueryAPI.Models.QueryRequest.PageNumber">
+            <summary>
+            Page number for pagination (default: 1)
+            </summary>
+        </member>
+        <member name="P:SqlQueryAPI.Models.QueryRequest.PageSize">
+            <summary>
+            Page size for pagination (default: 100, max: 1000)
+            </summary>
+        </member>
+        <member name="P:SqlQueryAPI.Models.QueryRequest.CommandTimeout">
+            <summary>
+            Connection timeout in seconds (default: 30)
+            </summary>
+        </member>
+        <member name="T:SqlQueryAPI.Models.QueryResponse">
+            <summary>
+            Response model for SQL query results
+            </summary>
+        </member>
+        <member name="P:SqlQueryAPI.Models.QueryResponse.Success">
+            <summary>
+            Indicates if the query executed successfully
+            </summary>
+        </member>
+        <member name="P:SqlQueryAPI.Models.QueryResponse.Data">
+            <summary>
+            Query execution result data
+            </summary>
+        </member>
+        <member name="P:SqlQueryAPI.Models.QueryResponse.TotalRows">
+            <summary>
+            Total number of rows in the result set
+            </summary>
+        </member>
+        <member name="P:SqlQueryAPI.Models.QueryResponse.PageNumber">
+            <summary>
+            Current page number
+            </summary>
+        </member>
+        <member name="P:SqlQueryAPI.Models.QueryResponse.PageSize">
+            <summary>
+            Number of rows per page
+            </summary>
+        </member>
+        <member name="P:SqlQueryAPI.Models.QueryResponse.TotalPages">
+            <summary>
+            Total number of pages available
+            </summary>
+        </member>
+        <member name="P:SqlQueryAPI.Models.QueryResponse.ErrorMessage">
+            <summary>
+            Error message if the query failed
+            </summary>
+        </member>
+        <member name="P:SqlQueryAPI.Models.QueryResponse.StackTrace">
+            <summary>
+            Stack trace for debugging purposes (only in development)
+            </summary>
+        </member>
+        <member name="P:SqlQueryAPI.Models.QueryResponse.ExecutionTimeMs">
+            <summary>
+            Execution time in milliseconds
+            </summary>
+        </member>
+        <member name="T:SqlQueryAPI.Services.QueryValidatorService">
+            <summary>
+            Service for validating SQL queries for security and correctness
+            </summary>
+        </member>
+        <member name="M:SqlQueryAPI.Services.QueryValidatorService.ValidateQuery(System.String)">
+            <summary>
+            Validates a SQL query for security and correctness
+            </summary>
+            <param name="query">The SQL query to validate</param>
+            <returns>True if the query is valid for execution</returns>
+            <exception cref="T:SqlQueryAPI.Exceptions.InvalidQueryException">Thrown if the query is invalid or dangerous</exception>
+        </member>
+        <member name="M:SqlQueryAPI.Services.QueryValidatorService.ContainsDangerousKeywords(System.String)">
+            <summary>
+            Checks if the query contains dangerous keywords
+            </summary>
+        </member>
+        <member name="M:SqlQueryAPI.Services.QueryValidatorService.ContainsSuspiciousPatterns(System.String)">
+            <summary>
+            Checks for SQL injection and other suspicious patterns
+            </summary>
+        </member>
+        <member name="T:SqlQueryAPI.Services.SqlQueryService">
+            <summary>
+            Service for executing SQL queries against SQL Server database
+            </summary>
+        </member>
+        <member name="M:SqlQueryAPI.Services.SqlQueryService.ExecuteQueryAsync(SqlQueryAPI.Models.QueryRequest)">
+            <summary>
+            Executes a SQL query and returns the results as a list of dictionaries
+            </summary>
+            <param name="request">Query request containing SQL and pagination info</param>
+            <returns>Query response with results and metadata</returns>
+        </member>
+        <member name="M:SqlQueryAPI.Services.SqlQueryService.GetRowCountAsync(Microsoft.Data.SqlClient.SqlConnection,System.String,System.Int32)">
+            <summary>
+            Gets the total row count for a query
+            </summary>
+        </member>
+        <member name="M:SqlQueryAPI.Services.SqlQueryService.ExecuteDataQueryAsync(Microsoft.Data.SqlClient.SqlConnection,System.String,System.Int32)">
+            <summary>
+            Executes a query and returns results as a list of dictionaries
+            </summary>
+        </member>
+        <member name="M:SqlQueryAPI.Services.SqlQueryService.BuildCountQuery(System.String)">
+            <summary>
+            Builds a COUNT query from the original SELECT query
+            </summary>
+        </member>
+        <member name="M:SqlQueryAPI.Services.SqlQueryService.BuildPaginatedQuery(System.String,System.Int32,System.Int32)">
+            <summary>
+            Builds a paginated query using OFFSET and FETCH
+            </summary>
+        </member>
+        <member name="M:SqlQueryAPI.Services.SqlQueryService.RemoveOrderByClause(System.String)">
+            <summary>
+            Removes the ORDER BY clause from a query (for counting)
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,93 @@
+2026-04-16 01:21:00.222 +05:30 [INF] SQL Query Web API starting up at "2026-04-15T19:51:00.1780952Z"
+2026-04-16 01:21:01.881 +05:30 [INF] Now listening on: https://localhost:7129
+2026-04-16 01:21:01.885 +05:30 [INF] Now listening on: http://localhost:5148
+2026-04-16 01:21:02.190 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-16 01:21:02.192 +05:30 [INF] Hosting environment: Development
+2026-04-16 01:21:02.194 +05:30 [INF] Content root path: D:\Projects\Ecommerce\SqlQueryAPI
+2026-04-16 01:22:21.654 +05:30 [INF] SQL Query Web API starting up at "2026-04-15T19:52:21.6055737Z"
+2026-04-16 01:22:22.613 +05:30 [INF] Now listening on: https://localhost:7129
+2026-04-16 01:22:22.619 +05:30 [INF] Now listening on: http://localhost:5148
+2026-04-16 01:22:23.160 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-16 01:22:23.168 +05:30 [INF] Hosting environment: Development
+2026-04-16 01:22:23.283 +05:30 [INF] Content root path: D:\Projects\Ecommerce\SqlQueryAPI
+2026-04-16 01:22:25.411 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/swagger - null null
+2026-04-16 01:22:26.281 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/swagger - 301 0 null 961.2735ms
+2026-04-16 01:22:26.449 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/swagger/index.html - null null
+2026-04-16 01:22:26.942 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/swagger/index.html - 200 null text/html;charset=utf-8 493.2793ms
+2026-04-16 01:22:27.528 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-16 01:22:27.528 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/_vs/browserLink - null null
+2026-04-16 01:22:27.580 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 52.2955ms
+2026-04-16 01:22:27.798 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/_vs/browserLink - 200 null text/javascript; charset=UTF-8 269.509ms
+2026-04-16 01:22:29.072 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/swagger/v1/swagger.json - null null
+2026-04-16 01:22:29.898 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 825.7481ms
+2026-04-16 02:02:40.840 +05:30 [INF] SQL Query Web API starting up at "2026-04-15T20:32:40.8096349Z"
+2026-04-16 02:02:41.664 +05:30 [INF] Now listening on: https://localhost:7129
+2026-04-16 02:02:41.670 +05:30 [INF] Now listening on: http://localhost:5148
+2026-04-16 02:02:41.922 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-16 02:02:41.925 +05:30 [INF] Hosting environment: Development
+2026-04-16 02:02:41.927 +05:30 [INF] Content root path: D:\Projects\Ecommerce\SqlQueryAPI
+2026-04-16 02:02:43.661 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/swagger - null null
+2026-04-16 02:02:44.028 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/swagger - 301 0 null 390.8971ms
+2026-04-16 02:02:44.052 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/swagger/index.html - null null
+2026-04-16 02:02:44.355 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/swagger/index.html - 200 null text/html;charset=utf-8 304.1175ms
+2026-04-16 02:02:44.475 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/_vs/browserLink - null null
+2026-04-16 02:02:44.478 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-16 02:02:44.585 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 112.0904ms
+2026-04-16 02:02:44.656 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/_vs/browserLink - 200 null text/javascript; charset=UTF-8 180.678ms
+2026-04-16 02:02:45.001 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/swagger/v1/swagger.json - null null
+2026-04-16 02:02:45.055 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 54.1259ms
+2026-04-16 02:03:16.791 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 257
+2026-04-16 02:03:16.812 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-16 02:03:16.890 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-16 02:03:23.818 +05:30 [INF] Query execution request received
+2026-04-16 02:03:23.988 +05:30 [INF] Query validation passed
+2026-04-16 02:03:23.990 +05:30 [INF] Executing query with pagination - Page: 1, PageSize: 50
+2026-04-16 02:03:25.804 +05:30 [INF] Query executed successfully - Total Rows: 0, Pages: 0, Execution Time: 1836ms
+2026-04-16 02:03:25.868 +05:30 [INF] Executing OkObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-16 02:03:25.922 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 9020.7676ms
+2026-04-16 02:03:25.927 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-16 02:03:25.931 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 200 null application/json; charset=utf-8 9140.73ms
+2026-04-16 02:04:38.743 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 257
+2026-04-16 02:04:38.755 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-16 02:04:38.759 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-16 02:04:41.506 +05:30 [INF] Query execution request received
+2026-04-16 02:04:41.510 +05:30 [INF] Query validation passed
+2026-04-16 02:04:41.512 +05:30 [INF] Executing query with pagination - Page: 1, PageSize: 50
+2026-04-16 02:04:41.543 +05:30 [INF] Query executed successfully - Total Rows: 1, Pages: 1, Execution Time: 33ms
+2026-04-16 02:04:41.549 +05:30 [INF] Executing OkObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-16 02:04:41.583 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 2818.9338ms
+2026-04-16 02:04:41.587 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-16 02:04:41.594 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 200 null application/json; charset=utf-8 2850.7676ms
+2026-04-16 02:05:43.935 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 246
+2026-04-16 02:05:43.942 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-16 02:05:43.944 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-16 02:05:48.488 +05:30 [INF] Query execution request received
+2026-04-16 02:05:48.492 +05:30 [INF] Query validation passed
+2026-04-16 02:05:48.495 +05:30 [INF] Executing query with pagination - Page: 1, PageSize: 50
+2026-04-16 02:05:48.514 +05:30 [INF] Query executed successfully - Total Rows: 10, Pages: 1, Execution Time: 22ms
+2026-04-16 02:05:48.521 +05:30 [INF] Executing OkObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-16 02:05:48.526 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 4578.4945ms
+2026-04-16 02:05:48.531 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-16 02:05:48.536 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 200 null application/json; charset=utf-8 4601.2306ms
+2026-04-16 02:07:18.557 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 400
+2026-04-16 02:07:18.565 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-16 02:07:18.568 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-16 02:07:21.295 +05:30 [INF] Query execution request received
+2026-04-16 02:07:21.298 +05:30 [INF] Query validation passed
+2026-04-16 02:07:21.301 +05:30 [INF] Executing query with pagination - Page: 1, PageSize: 1000
+2026-04-16 02:07:21.335 +05:30 [INF] Query executed successfully - Total Rows: 1, Pages: 1, Execution Time: 36ms
+2026-04-16 02:07:21.349 +05:30 [INF] Executing OkObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-16 02:07:21.373 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 2799.447ms
+2026-04-16 02:07:21.376 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-16 02:07:21.381 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 200 null application/json; charset=utf-8 2824.0005ms
+2026-04-16 02:08:58.712 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 324
+2026-04-16 02:08:58.720 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-16 02:08:58.722 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-16 02:09:02.980 +05:30 [INF] Query execution request received
+2026-04-16 02:09:02.983 +05:30 [INF] Query validation passed
+2026-04-16 02:09:02.986 +05:30 [INF] Executing query with pagination - Page: 1, PageSize: 1000
+2026-04-16 02:09:03.009 +05:30 [INF] Query executed successfully - Total Rows: 10, Pages: 1, Execution Time: 26ms
+2026-04-16 02:09:03.016 +05:30 [INF] Executing OkObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-16 02:09:03.020 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 4291.9689ms
+2026-04-16 02:09:03.024 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-16 02:09:03.029 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 200 null application/json; charset=utf-8 4316.9392ms

@@ -1,0 +1,270 @@
+2026-04-15 02:25:40.183 +05:30 [INF] SQL Query Web API starting up at "2026-04-14T20:55:40.1496460Z"
+2026-04-15 02:25:40.489 +05:30 [INF] Now listening on: http://localhost:5148
+2026-04-15 02:25:40.492 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-15 02:25:40.493 +05:30 [INF] Hosting environment: Development
+2026-04-15 02:25:40.496 +05:30 [INF] Content root path: D:\Projects\Ecommerce\SqlQueryAPI
+2026-04-15 02:25:55.786 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5148/api/query/health - null null
+2026-04-15 02:25:56.039 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-04-15 02:25:56.057 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.Health (SqlQueryAPI)'
+2026-04-15 02:25:56.131 +05:30 [INF] Route matched with {action = "Health", controller = "Query"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Health() on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 02:25:56.148 +05:30 [INF] Health check requested
+2026-04-15 02:25:56.173 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-15 02:25:56.483 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.Health (SqlQueryAPI) in 334.2261ms
+2026-04-15 02:25:56.504 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.Health (SqlQueryAPI)'
+2026-04-15 02:25:56.523 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5148/api/query/health - 200 null application/json; charset=utf-8 745.4387ms
+2026-04-15 02:26:04.647 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5148/api/query/execute - application/json 136
+2026-04-15 02:26:04.661 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 02:26:04.700 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 02:26:04.809 +05:30 [INF] Query execution request received
+2026-04-15 02:26:04.854 +05:30 [INF] Query validation passed
+2026-04-15 02:26:04.857 +05:30 [INF] Executing query with pagination - Page: 1, PageSize: 100
+2026-04-15 02:26:05.781 +05:30 [INF] Query executed successfully - Total Rows: 1, Pages: 1, Execution Time: 956ms
+2026-04-15 02:26:05.816 +05:30 [INF] Executing OkObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-15 02:26:05.946 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 1239.016ms
+2026-04-15 02:26:05.955 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 02:26:05.969 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5148/api/query/execute - 200 null application/json; charset=utf-8 1323.0019ms
+2026-04-15 02:31:52.574 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5148/api/query/execute - null null
+2026-04-15 02:31:52.616 +05:30 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-04-15 02:31:52.626 +05:30 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-04-15 02:31:52.638 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5148/api/query/execute - 405 0 null 64.8701ms
+2026-04-15 02:31:56.078 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5148/api/query/execute - null null
+2026-04-15 02:31:56.090 +05:30 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-04-15 02:31:56.094 +05:30 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-04-15 02:31:56.101 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5148/api/query/execute - 405 0 null 22.0365ms
+2026-04-15 02:32:43.088 +05:30 [INF] SQL Query Web API starting up at "2026-04-14T21:02:43.0389482Z"
+2026-04-15 02:32:43.847 +05:30 [INF] Now listening on: https://localhost:7129
+2026-04-15 02:32:43.854 +05:30 [INF] Now listening on: http://localhost:5148
+2026-04-15 02:32:44.117 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-15 02:32:44.119 +05:30 [INF] Hosting environment: Development
+2026-04-15 02:32:44.121 +05:30 [INF] Content root path: D:\Projects\Ecommerce\SqlQueryAPI
+2026-04-15 02:32:53.038 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/swagger - null null
+2026-04-15 02:32:53.684 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/swagger - 301 0 null 666.3109ms
+2026-04-15 02:32:53.702 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/swagger/index.html - null null
+2026-04-15 02:32:54.040 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/swagger/index.html - 200 null text/html;charset=utf-8 337.0921ms
+2026-04-15 02:32:54.117 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/swagger/swagger-ui.css - null null
+2026-04-15 02:32:54.120 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/swagger/swagger-ui-bundle.js - null null
+2026-04-15 02:32:54.127 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/_vs/browserLink - null null
+2026-04-15 02:32:54.128 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-15 02:32:54.123 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/swagger/swagger-ui-standalone-preset.js - null null
+2026-04-15 02:32:54.222 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-04-15 02:32:54.250 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/swagger/swagger-ui.css - 200 152034 text/css 134.4096ms
+2026-04-15 02:32:54.252 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 124.702ms
+2026-04-15 02:32:54.291 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-04-15 02:32:54.296 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 176.5494ms
+2026-04-15 02:32:54.378 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-04-15 02:32:54.384 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 264.1977ms
+2026-04-15 02:32:54.476 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/_vs/browserLink - 200 null text/javascript; charset=UTF-8 348.532ms
+2026-04-15 02:32:54.840 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/swagger/favicon-16x16.png - null null
+2026-04-15 02:32:54.845 +05:30 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2026-04-15 02:32:54.848 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/swagger/favicon-16x16.png - 200 665 image/png 8.9225ms
+2026-04-15 02:32:54.931 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7129/swagger/v1/swagger.json - null null
+2026-04-15 02:32:54.966 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7129/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 35.3617ms
+2026-04-15 02:49:59.979 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 324
+2026-04-15 02:50:00.176 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 02:50:00.525 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 02:50:00.884 +05:30 [INF] Query execution request received
+2026-04-15 02:50:01.013 +05:30 [INF] Query validation passed
+2026-04-15 02:50:01.020 +05:30 [INF] Executing query with pagination - Page: 1, PageSize: 1000
+2026-04-15 02:50:02.534 +05:30 [INF] Query executed successfully - Total Rows: 10, Pages: 1, Execution Time: 1598ms
+2026-04-15 02:50:02.571 +05:30 [INF] Executing OkObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-15 02:50:02.802 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 2233.9977ms
+2026-04-15 02:50:02.820 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 02:50:02.833 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 200 null application/json; charset=utf-8 2869.4738ms
+2026-04-15 02:52:12.090 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 257
+2026-04-15 02:52:12.104 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 02:52:12.110 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 02:52:12.122 +05:30 [INF] Query execution request received
+2026-04-15 02:52:12.127 +05:30 [INF] Query validation passed
+2026-04-15 02:52:12.129 +05:30 [INF] Executing query with pagination - Page: 1, PageSize: 50
+2026-04-15 02:52:12.166 +05:30 [INF] Query executed successfully - Total Rows: 1, Pages: 1, Execution Time: 40ms
+2026-04-15 02:52:12.172 +05:30 [INF] Executing OkObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-15 02:52:12.176 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 60.1705ms
+2026-04-15 02:52:12.180 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 02:52:12.183 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 200 null application/json; charset=utf-8 92.898ms
+2026-04-15 02:54:21.846 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 257
+2026-04-15 02:54:21.860 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 02:54:21.864 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 03:03:33.991 +05:30 [INF] Query execution request received
+2026-04-15 03:03:34.208 +05:30 [INF] Query validation passed
+2026-04-15 03:03:34.278 +05:30 [INF] Executing query with pagination - Page: 1, PageSize: 50
+2026-04-15 03:03:34.492 +05:30 [INF] Query executed successfully - Total Rows: 1, Pages: 1, Execution Time: 456ms
+2026-04-15 03:03:34.512 +05:30 [INF] Executing OkObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-15 03:03:34.597 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 552725.0721ms
+2026-04-15 03:03:34.604 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:03:34.610 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 499 null application/json; charset=utf-8 552762.6377ms
+2026-04-15 03:36:22.603 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 162
+2026-04-15 03:36:22.687 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:36:22.749 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 03:36:30.477 +05:30 [INF] Query execution request received
+2026-04-15 03:36:30.539 +05:30 [WRN] Query validation failed: Contains suspicious SQL patterns
+2026-04-15 03:36:30.820 +05:30 [WRN] Invalid query: Query contains suspicious patterns that may indicate SQL injection attempts.
+2026-04-15 03:36:30.849 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-15 03:36:30.869 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 8009.4652ms
+2026-04-15 03:36:30.878 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:36:30.891 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 400 null application/json; charset=utf-8 8304.7726ms
+2026-04-15 03:36:47.824 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 371
+2026-04-15 03:36:47.831 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:36:47.833 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 03:36:47.838 +05:30 [INF] Query execution request received
+2026-04-15 03:36:47.840 +05:30 [INF] Query validation passed
+2026-04-15 03:36:47.842 +05:30 [INF] Executing query with pagination - Page: 1, PageSize: 200
+2026-04-15 03:36:48.413 +05:30 [ERR] Database error during query execution
+Microsoft.Data.SqlClient.SqlException (0x80131904): A TOP can not be used in the same query or sub-query as a OFFSET.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteReaderAsync>b__283_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at SqlQueryAPI.Services.SqlQueryService.ExecuteDataQueryAsync(SqlConnection connection, String query, Int32 commandTimeout) in D:\Projects\Ecommerce\SqlQueryAPI\Services\SqlQueryService.cs:line 162
+   at SqlQueryAPI.Services.SqlQueryService.ExecuteQueryAsync(QueryRequest request) in D:\Projects\Ecommerce\SqlQueryAPI\Services\SqlQueryService.cs:line 65
+ClientConnectionId:9247f164-94bb-42d5-b045-076f401674c2
+Error Number:10741,State:2,Class:15
+2026-04-15 03:36:48.629 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-15 03:36:48.644 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 807.4371ms
+2026-04-15 03:36:48.648 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:36:48.652 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 400 null application/json; charset=utf-8 827.1579ms
+2026-04-15 03:36:58.439 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 392
+2026-04-15 03:36:58.445 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:36:58.449 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 03:36:58.459 +05:30 [INF] Query execution request received
+2026-04-15 03:36:58.461 +05:30 [INF] Query validation passed
+2026-04-15 03:36:58.464 +05:30 [INF] Executing query with pagination - Page: 1, PageSize: 200
+2026-04-15 03:36:58.581 +05:30 [ERR] Database error during query execution
+Microsoft.Data.SqlClient.SqlException (0x80131904): A TOP can not be used in the same query or sub-query as a OFFSET.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteReaderAsync>b__283_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at SqlQueryAPI.Services.SqlQueryService.ExecuteDataQueryAsync(SqlConnection connection, String query, Int32 commandTimeout) in D:\Projects\Ecommerce\SqlQueryAPI\Services\SqlQueryService.cs:line 162
+   at SqlQueryAPI.Services.SqlQueryService.ExecuteQueryAsync(QueryRequest request) in D:\Projects\Ecommerce\SqlQueryAPI\Services\SqlQueryService.cs:line 65
+ClientConnectionId:9247f164-94bb-42d5-b045-076f401674c2
+Error Number:10741,State:2,Class:15
+2026-04-15 03:36:58.636 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-15 03:36:58.646 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 188.514ms
+2026-04-15 03:36:58.654 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:36:58.663 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 400 null application/json; charset=utf-8 224.496ms
+2026-04-15 03:37:01.181 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 561
+2026-04-15 03:37:01.220 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:37:01.223 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 03:37:01.231 +05:30 [INF] Query execution request received
+2026-04-15 03:37:01.233 +05:30 [INF] Query validation passed
+2026-04-15 03:37:01.235 +05:30 [INF] Executing query with pagination - Page: 1, PageSize: 200
+2026-04-15 03:37:01.281 +05:30 [INF] Query executed successfully - Total Rows: 1, Pages: 1, Execution Time: 48ms
+2026-04-15 03:37:01.285 +05:30 [INF] Executing OkObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-15 03:37:01.291 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 61.9358ms
+2026-04-15 03:37:01.297 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:37:01.302 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 200 null application/json; charset=utf-8 121.2793ms
+2026-04-15 03:37:08.182 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 392
+2026-04-15 03:37:08.187 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:37:08.190 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 03:37:08.196 +05:30 [INF] Query execution request received
+2026-04-15 03:37:08.198 +05:30 [INF] Query validation passed
+2026-04-15 03:37:08.201 +05:30 [INF] Executing query with pagination - Page: 1, PageSize: 200
+2026-04-15 03:37:08.284 +05:30 [ERR] Database error during query execution
+Microsoft.Data.SqlClient.SqlException (0x80131904): A TOP can not be used in the same query or sub-query as a OFFSET.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteReaderAsync>b__283_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at SqlQueryAPI.Services.SqlQueryService.ExecuteDataQueryAsync(SqlConnection connection, String query, Int32 commandTimeout) in D:\Projects\Ecommerce\SqlQueryAPI\Services\SqlQueryService.cs:line 162
+   at SqlQueryAPI.Services.SqlQueryService.ExecuteQueryAsync(QueryRequest request) in D:\Projects\Ecommerce\SqlQueryAPI\Services\SqlQueryService.cs:line 65
+ClientConnectionId:9247f164-94bb-42d5-b045-076f401674c2
+Error Number:10741,State:2,Class:15
+2026-04-15 03:37:08.305 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-15 03:37:08.308 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 112.6419ms
+2026-04-15 03:37:08.311 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:37:08.313 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 400 null application/json; charset=utf-8 131.1416ms
+2026-04-15 03:37:13.383 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 371
+2026-04-15 03:37:13.389 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:37:13.392 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 03:37:13.398 +05:30 [INF] Query execution request received
+2026-04-15 03:37:13.426 +05:30 [INF] Query validation passed
+2026-04-15 03:37:13.429 +05:30 [INF] Executing query with pagination - Page: 1, PageSize: 200
+2026-04-15 03:37:13.529 +05:30 [ERR] Database error during query execution
+Microsoft.Data.SqlClient.SqlException (0x80131904): A TOP can not be used in the same query or sub-query as a OFFSET.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteReaderAsync>b__283_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at SqlQueryAPI.Services.SqlQueryService.ExecuteDataQueryAsync(SqlConnection connection, String query, Int32 commandTimeout) in D:\Projects\Ecommerce\SqlQueryAPI\Services\SqlQueryService.cs:line 162
+   at SqlQueryAPI.Services.SqlQueryService.ExecuteQueryAsync(QueryRequest request) in D:\Projects\Ecommerce\SqlQueryAPI\Services\SqlQueryService.cs:line 65
+ClientConnectionId:9247f164-94bb-42d5-b045-076f401674c2
+Error Number:10741,State:2,Class:15
+2026-04-15 03:37:13.568 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-15 03:37:13.571 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 174.0726ms
+2026-04-15 03:37:13.575 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:37:13.579 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 400 null application/json; charset=utf-8 196.699ms
+2026-04-15 03:37:23.494 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 162
+2026-04-15 03:37:23.507 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:37:23.513 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 03:37:23.526 +05:30 [INF] Query execution request received
+2026-04-15 03:37:23.532 +05:30 [WRN] Query validation failed: Contains suspicious SQL patterns
+2026-04-15 03:37:23.772 +05:30 [WRN] Invalid query: Query contains suspicious patterns that may indicate SQL injection attempts.
+2026-04-15 03:37:23.774 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-15 03:37:23.778 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 252.9553ms
+2026-04-15 03:37:23.780 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:37:23.784 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 400 null application/json; charset=utf-8 290.0731ms
+2026-04-15 03:37:56.217 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 166
+2026-04-15 03:37:56.234 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:37:56.242 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 03:37:56.255 +05:30 [INF] Query execution request received
+2026-04-15 03:37:56.259 +05:30 [WRN] Query validation failed: Contains suspicious SQL patterns
+2026-04-15 03:37:56.435 +05:30 [WRN] Invalid query: Query contains suspicious patterns that may indicate SQL injection attempts.
+2026-04-15 03:37:56.441 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-15 03:37:56.449 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 195.2658ms
+2026-04-15 03:37:56.458 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:37:56.466 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 400 null application/json; charset=utf-8 249.7231ms
+2026-04-15 03:38:32.280 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 166
+2026-04-15 03:38:32.287 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:38:32.289 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 03:38:38.964 +05:30 [INF] Query execution request received
+2026-04-15 03:38:41.312 +05:30 [WRN] Query validation failed: Contains suspicious SQL patterns
+2026-04-15 03:38:41.471 +05:30 [WRN] Invalid query: Query contains suspicious patterns that may indicate SQL injection attempts.
+2026-04-15 03:39:03.434 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'SqlQueryAPI.Models.QueryResponse'.
+2026-04-15 03:39:03.490 +05:30 [INF] Executed action SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI) in 31196.3893ms
+2026-04-15 03:39:03.498 +05:30 [INF] Executed endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:39:03.507 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7129/api/query/execute - 400 null application/json; charset=utf-8 31230.426ms
+2026-04-15 03:39:33.665 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7129/api/query/execute - application/json 166
+2026-04-15 03:39:33.679 +05:30 [INF] Executing endpoint 'SqlQueryAPI.Controllers.QueryController.ExecuteQuery (SqlQueryAPI)'
+2026-04-15 03:39:33.685 +05:30 [INF] Route matched with {action = "ExecuteQuery", controller = "Query"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SqlQueryAPI.Models.QueryResponse]] ExecuteQuery(SqlQueryAPI.Models.QueryRequest) on controller SqlQueryAPI.Controllers.QueryController (SqlQueryAPI).
+2026-04-15 03:39:38.903 +05:30 [INF] Query execution request received
+2026-04-15 03:39:50.369 +05:30 [WRN] Query validation failed: Contains suspicious SQL patterns

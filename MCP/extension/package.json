@@ -1,0 +1,61 @@
+{
+  "name": "paaf-data",
+  "displayName": "paafData",
+  "description": "Query eCommerce Transactions from Copilot Chat using @paafData",
+  "version": "1.0.0",
+  "publisher": "paaf-local",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": ["AI"],
+  "activationEvents": [],
+  "main": "./src/extension.js",
+  "contributes": {
+    "chatParticipants": [
+      {
+        "id": "paaf.data",
+        "name": "paafData",
+        "fullName": "paafData Transactions",
+        "description": "Ask anything about eCommerce transactions, customers, or groceries",
+        "isSticky": true,
+        "commands": [
+          {
+            "name": "summary",
+            "description": "Show overall transaction statistics"
+          },
+          {
+            "name": "top-customers",
+            "description": "Show top customers by spending"
+          },
+          {
+            "name": "top-groceries",
+            "description": "Show top grocery items by revenue"
+          },
+          {
+            "name": "ask-pdf",
+            "description": "Ask a question about a PDF file — usage: /ask-pdf C:\\path\\to\\file.pdf your question"
+          }
+        ]
+      }
+    ],
+    "configuration": {
+      "title": "paafData",
+      "properties": {
+        "paafData.apiUrl": {
+          "type": "string",
+          "default": "https://localhost:7129",
+          "description": "Base URL of the Transactions Web API"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.3.2"
+  },
+  "scripts": {
+    "package": "vsce package"
+  }
+}

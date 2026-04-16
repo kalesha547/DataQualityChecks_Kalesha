@@ -1,0 +1,205 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "SQL Query Web API",
+    "description": "ASP.NET Core Web API for executing SQL queries with security, validation, error handling, logging, and pagination.",
+    "contact": {
+      "name": "API Support",
+      "url": "https://github.com"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Query/execute": {
+      "post": {
+        "tags": [
+          "Query"
+        ],
+        "summary": "Executes a SQL query and returns results in JSON format",
+        "description": "Sample request:\r\n            \r\n    POST /api/query/execute\r\n    {\r\n      \"query\": \"SELECT * FROM YourTable WHERE Status = 'Active'\",\r\n      \"pageNumber\": 1,\r\n      \"pageSize\": 100,\r\n      \"commandTimeout\": 30\r\n    }\r\n            \r\nNote: Only SELECT queries are allowed. Other operations (INSERT, UPDATE, DELETE, DROP, etc.) are blocked for security.",
+        "requestBody": {
+          "description": "The query request containing SQL and pagination parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Query/health": {
+      "get": {
+        "tags": [
+          "Query"
+        ],
+        "summary": "Health check endpoint",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "QueryRequest": {
+        "required": [
+          "query"
+        ],
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The SQL query to execute",
+            "nullable": true
+          },
+          "pageNumber": {
+            "type": "integer",
+            "description": "Page number for pagination (default: 1)",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Page size for pagination (default: 100, max: 1000)",
+            "format": "int32"
+          },
+          "commandTimeout": {
+            "type": "integer",
+            "description": "Connection timeout in seconds (default: 30)",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request model for executing SQL queries"
+      },
+      "QueryResponse": {
+        "required": [
+          "success"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Indicates if the query executed successfully"
+          },
+          "data": {
+            "description": "Query execution result data",
+            "nullable": true
+          },
+          "totalRows": {
+            "type": "integer",
+            "description": "Total number of rows in the result set",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "description": "Current page number",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Number of rows per page",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "description": "Total number of pages available",
+            "format": "int32"
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": "Error message if the query failed",
+            "nullable": true
+          },
+          "stackTrace": {
+            "type": "string",
+            "description": "Stack trace for debugging purposes (only in development)",
+            "nullable": true
+          },
+          "executionTimeMs": {
+            "type": "integer",
+            "description": "Execution time in milliseconds",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response model for SQL query results"
+      }
+    }
+  }
+}
