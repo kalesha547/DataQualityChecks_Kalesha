@@ -1,0 +1,150 @@
+{
+  "analysisDate": "2026-04-18T00:00:00.000Z",
+  "angularVersion": "18.2.0",
+  "totalComponents": 8,
+  "components": [
+    {
+      "id": "layout",
+      "angularClass": "LayoutComponent",
+      "angularFile": "src/app/layout/layout/layout.component.ts",
+      "reactOutputFile": "src/components/layout/LayoutComponent.tsx",
+      "directives": ["RouterOutlet", "RouterLink", "RouterLinkActive", "AsyncPipe", "NgOptimizedImage", "@for"],
+      "materialModules": ["MatToolbarModule","MatButtonModule","MatSidenavModule","MatListModule","MatIconModule","MatMenu","MatMenuItem","MatMenuTrigger"],
+      "cdkFeatures": ["BreakpointObserver", "Breakpoints.Handset"],
+      "rxjsOperators": ["map", "shareReplay"],
+      "injectedServices": ["BreakpointObserver","Router","ChangeDetectorRef","ActivatedRoute"],
+      "formControls": [],
+      "complexity": "medium",
+      "conversionChallenges": ["isHandset$ Observable → useMediaQuery hook","Router.events.subscribe → useLocation/useParams hooks","routes[] loop from app.routes → NAV_ITEMS const","mat-drawer open/close state → useState"]
+    },
+    {
+      "id": "dashboard",
+      "angularClass": "DashboardComponent",
+      "angularFile": "src/app/protected/dashboard/dashboard.component.ts",
+      "reactOutputFile": "src/pages/dashboard/DashboardComponent.tsx",
+      "directives": ["@for","MatGridList","MatCard","MatMenu"],
+      "materialModules": ["MatGridListModule","MatCardModule","MatMenuModule","MatButtonModule","MatIconModule"],
+      "cdkFeatures": [],
+      "rxjsOperators": [],
+      "injectedServices": [],
+      "formControls": [],
+      "complexity": "low",
+      "conversionChallenges": ["MatGridList responsive cols → Grid2 with breakpoints"]
+    },
+    {
+      "id": "drag-drop",
+      "angularClass": "DragDropComponent",
+      "angularFile": "src/app/protected/drag-drop/drag-drop.component.ts",
+      "reactOutputFile": "src/pages/drag-drop/DragDropComponent.tsx",
+      "directives": ["@for","CdkDrag","CdkDropList"],
+      "materialModules": [],
+      "cdkFeatures": ["CdkDrag","CdkDropList","CdkDragDrop","moveItemInArray","transferArrayItem"],
+      "rxjsOperators": [],
+      "injectedServices": [],
+      "formControls": [],
+      "complexity": "medium",
+      "conversionChallenges": ["CDK cross-list drag → @dnd-kit DndContext with two SortableContext areas","moveItemInArray → arrayMove","transferArrayItem → manual splice between two useState arrays"],
+      "sourceData": {
+        "todo": ["Get to work","Pick up groceries","Go home","Fall asleep"],
+        "done": ["Get up","Brush teeth","Take a shower","Check e-mail","Walk dog"]
+      }
+    },
+    {
+      "id": "table",
+      "angularClass": "TableComponent",
+      "angularFile": "src/app/protected/table/table.component.ts",
+      "reactOutputFile": "src/pages/table/TableComponent.tsx",
+      "directives": ["MatTable","MatSort","MatPaginator"],
+      "materialModules": ["MatTableModule","MatPaginatorModule","MatSortModule","MatProgressSpinnerModule"],
+      "cdkFeatures": ["DataSource"],
+      "rxjsOperators": ["map","merge","of"],
+      "injectedServices": [],
+      "formControls": [],
+      "complexity": "medium",
+      "conversionChallenges": ["MatTableDataSource with RxJS → @mui/x-data-grid with useState"],
+      "sourceData": {
+        "columns": ["id","name"],
+        "sampleData": "EXAMPLE_DATA with 20 elements: Hydrogen→Calcium (periodic table elements)"
+      }
+    },
+    {
+      "id": "address-form",
+      "angularClass": "AddressFormComponent",
+      "angularFile": "src/app/protected/address-form/address-form.component.ts",
+      "reactOutputFile": "src/pages/address-form/AddressFormComponent.tsx",
+      "directives": ["ReactiveFormsModule","[formControlName]","[formGroup]","mat-form-field"],
+      "materialModules": ["MatInputModule","MatButtonModule","MatSelectModule","MatRadioModule","MatCardModule"],
+      "cdkFeatures": [],
+      "rxjsOperators": [],
+      "injectedServices": ["FormBuilder"],
+      "formControls": ["company","firstName","lastName","address","address2","city","state","postalCode","shipping"],
+      "complexity": "high",
+      "conversionChallenges": ["FormBuilder.group → useForm+zodResolver","Validators.required → z.string().min(1)","postalCode minLength(5)+maxLength(5) → z.string().length(5) or regex","mat-select → MUI Controller+Select","mat-radio-group → MUI Controller+RadioGroup"],
+      "statesCount": 57
+    },
+    {
+      "id": "tree",
+      "angularClass": "TreeComponent",
+      "angularFile": "src/app/protected/tree/tree.component.ts",
+      "reactOutputFile": "src/pages/tree/TreeComponent.tsx",
+      "directives": ["MatTreeModule"],
+      "materialModules": ["MatTreeModule","MatButtonModule","MatIconModule"],
+      "cdkFeatures": ["FlatTreeControl","MatTreeFlattener","MatTreeFlatDataSource"],
+      "rxjsOperators": [],
+      "injectedServices": [],
+      "formControls": [],
+      "complexity": "medium",
+      "conversionChallenges": ["FlatTreeControl+TreeFlattener → MUI SimpleTreeView recursive render","FileNode hierarchy → preserved as-is in tree.data.ts"],
+      "sourceData": "files[] with components/angular/angularjs top-level folders"
+    },
+    {
+      "id": "theme-toggle",
+      "angularClass": "ThemeToggleComponent",
+      "angularFile": "src/app/shared/components/theme-toggle/theme-toggle.component.ts",
+      "reactOutputFile": "src/components/shared/ThemeToggle.tsx",
+      "directives": [],
+      "materialModules": ["MatButtonModule","MatIconModule"],
+      "cdkFeatures": [],
+      "rxjsOperators": [],
+      "injectedServices": [],
+      "formControls": [],
+      "complexity": "low",
+      "conversionChallenges": ["document.body.classList toggle → ThemeContext","localStorage → same","prefers-color-scheme → useMediaQuery"]
+    },
+    {
+      "id": "app-root",
+      "angularClass": "AppComponent",
+      "angularFile": "src/app/app.component.ts",
+      "reactOutputFile": "src/App.tsx",
+      "directives": ["RouterOutlet"],
+      "materialModules": [],
+      "cdkFeatures": [],
+      "rxjsOperators": [],
+      "injectedServices": [],
+      "formControls": [],
+      "complexity": "low",
+      "conversionChallenges": ["RouterOutlet → RouterProvider"]
+    }
+  ],
+  "routing": {
+    "type": "lazy",
+    "parentComponent": "LayoutComponent",
+    "routes": [
+      {"path":"","redirectTo":"dashboard"},
+      {"path":"dashboard","title":"Dashboard","icon":"dashboard","lazy":true},
+      {"path":"drag-drop","title":"Drag & Drop","icon":"drag_handle","lazy":true},
+      {"path":"table","title":"Table","icon":"table_chart","lazy":true},
+      {"path":"address-form","title":"Address Form","icon":"contact_mail","lazy":true},
+      {"path":"tree","title":"Tree","icon":"account_tree","lazy":true},
+      {"path":"**","redirectTo":"dashboard"}
+    ]
+  },
+  "theming": {
+    "approach": "M3 SCSS + body class toggle",
+    "darkModeStorage": "localStorage key: darkMode",
+    "systemPreferenceFallback": true
+  },
+  "stateManagement": "component-local",
+  "testFramework": "karma+jasmine",
+  "conversionOrder": ["config","types","hooks","theme","shared-components","layout","dashboard","drag-drop","table","address-form","tree","router","app","main"]
+}

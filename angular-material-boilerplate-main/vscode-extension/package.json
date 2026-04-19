@@ -1,0 +1,209 @@
+{
+  "name": "ng2react-agent",
+  "displayName": "Angular → React Migration Agent",
+  "description": "Copilot agentic tools for automated Angular-to-React conversion",
+  "version": "1.0.0",
+  "publisher": "bulletproof",
+  "engines": { "vscode": "^1.99.0" },
+  "categories": ["AI", "Other"],
+  "icon": "assets/icon.png",
+  "keywords": ["angular", "react", "migration", "copilot", "agent"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languageModelTools": [
+      {
+        "name": "ng2react_status",
+        "displayName": "Migration Status",
+        "modelDescription": "Returns the current status of the Angular-to-React migration workflow. Shows which of the 8 agents have completed, which are pending, and where to resume. Call this first to understand the current state before taking any action.",
+        "userDescription": "Check Angular→React migration progress",
+        "toolReferenceName": "ng2reactStatus",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(checklist)",
+        "tags": ["migration", "status"],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "angularProjectPath": {
+              "type": "string",
+              "description": "Absolute path to the Angular project root. Defaults to the workspace folder if omitted."
+            }
+          }
+        }
+      },
+      {
+        "name": "ng2react_analyze",
+        "displayName": "Analyze Angular Project",
+        "modelDescription": "Scans every Angular pattern in the project: components, @Injectable services, HttpClient calls, HttpInterceptors, @Pipe declarations, @Directive declarations (structural/attribute/validator), route guards (CanActivate/CanDeactivate/CanLoad/CanMatch), route resolvers (Resolve), NgRx/Akita/NgXs/BehaviorSubject state, Angular animations, InjectionTokens, FormArray, and nested FormGroup. Produces a structured conversion-report.json covering ALL patterns. This is Agent 1 of the migration pipeline — run it before scaffolding.",
+        "userDescription": "Analyze Angular source and generate conversion report",
+        "toolReferenceName": "ng2reactAnalyze",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(search)",
+        "tags": ["migration", "analysis"],
+        "inputSchema": {
+          "type": "object",
+          "required": ["angularProjectPath"],
+          "properties": {
+            "angularProjectPath": {
+              "type": "string",
+              "description": "Absolute path to the Angular project root (contains package.json and src/)."
+            },
+            "outputPath": {
+              "type": "string",
+              "description": "Where to write conversion-report.json. Defaults to <angularProjectPath>/ai-workflow/output/."
+            }
+          }
+        }
+      },
+      {
+        "name": "ng2react_scaffold",
+        "displayName": "Scaffold React Project",
+        "modelDescription": "Creates the complete React 18 + MUI v5 + Vite project structure at the specified output path. Generates package.json, tsconfig files, vite.config.ts, index.html, all src/ subdirectories, and runs npm install. This is Agent 2 — requires Agent 1 (ng2react_analyze) to have run first.",
+        "userDescription": "Create React project skeleton and install dependencies",
+        "toolReferenceName": "ng2reactScaffold",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(folder-library)",
+        "tags": ["migration", "scaffold"],
+        "inputSchema": {
+          "type": "object",
+          "required": ["reactOutputPath"],
+          "properties": {
+            "reactOutputPath": {
+              "type": "string",
+              "description": "Absolute path where the new React project will be created (e.g. d:/Projects/my-react-app)."
+            },
+            "angularProjectPath": {
+              "type": "string",
+              "description": "Absolute path to the Angular source project. Used to derive the project name, read the conversion report, and write the checkpoint."
+            },
+            "conversionReportPath": {
+              "type": "string",
+              "description": "Path to conversion-report.json from Agent 1. Defaults to <angularProjectPath>/ai-workflow/output/conversion-report.json if angularProjectPath is provided."
+            }
+          }
+        }
+      },
+      {
+        "name": "ng2react_convert",
+        "displayName": "Convert Angular Components",
+        "modelDescription": "Converts Angular patterns to React equivalents. Covers: components (@Component → functional TSX), services (@Injectable → hooks/Zustand/Context), HTTP (HttpClient → axios + src/api/ modules, HttpInterceptor → axios interceptors), pipes (@Pipe → src/utils/formatters.ts utility functions), directives (@Directive structural/attribute/validator/event → JSX/hooks/components/Zod), guards (CanActivate → ProtectedRoute, CanDeactivate → useBlocker, Resolve → loader()), state (NgRx → Redux Toolkit, BehaviorSubject → Zustand, Akita → Zustand normalized), advanced forms (FormArray → useFieldArray, nested FormGroup → nested Zod, async/cross-field validators). Use the 'patterns' parameter to target specific categories or pass 'all' for complete conversion.",
+        "userDescription": "Convert Angular components to React TSX",
+        "toolReferenceName": "ng2reactConvert",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(symbol-misc)",
+        "tags": ["migration", "convert"],
+        "inputSchema": {
+          "type": "object",
+          "required": ["angularProjectPath", "reactProjectPath"],
+          "properties": {
+            "angularProjectPath": {
+              "type": "string",
+              "description": "Absolute path to the Angular source project."
+            },
+            "reactProjectPath": {
+              "type": "string",
+              "description": "Absolute path to the scaffolded React project."
+            },
+            "componentName": {
+              "type": "string",
+              "description": "Optional: name of a single component to convert (e.g. 'DashboardComponent'). Omit to convert all components."
+            },
+            "includeTests": {
+              "type": "boolean",
+              "description": "Whether to also generate Vitest test files. Default: true.",
+              "default": true
+            },
+            "patterns": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["all", "components", "services", "http", "pipes", "directives", "guards", "state", "forms-advanced"]
+              },
+              "description": "Which Angular patterns to convert. Default: ['all'] converts everything. Use specific values to convert only certain categories (e.g. ['services', 'http'] to convert only service and HTTP layers).",
+              "default": ["all"]
+            }
+          }
+        }
+      },
+      {
+        "name": "ng2react_validate",
+        "displayName": "Validate React Project",
+        "modelDescription": "Runs the full quality gate on the converted React project: (1) TypeScript strict type check with tsc --noEmit, (2) all Vitest tests with vitest run, (3) production build with vite build. Reports pass/fail for each step and lists any errors. This is Agent 8 — run after all components are converted.",
+        "userDescription": "Run TypeScript check, tests, and build on the React project",
+        "toolReferenceName": "ng2reactValidate",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(verified)",
+        "tags": ["migration", "validation", "testing"],
+        "inputSchema": {
+          "type": "object",
+          "required": ["reactProjectPath"],
+          "properties": {
+            "reactProjectPath": {
+              "type": "string",
+              "description": "Absolute path to the React project to validate."
+            },
+            "steps": {
+              "type": "array",
+              "items": { "type": "string", "enum": ["typecheck", "test", "build"] },
+              "description": "Which validation steps to run. Defaults to all: ['typecheck', 'test', 'build'].",
+              "default": ["typecheck", "test", "build"]
+            }
+          }
+        }
+      },
+      {
+        "name": "ng2react_run_pipeline",
+        "displayName": "Run Full Migration Pipeline",
+        "modelDescription": "Orchestrates the complete Angular-to-React migration by running all 8 agents in sequence: analyze → scaffold → convert components → convert router → convert theme → convert forms → convert tests → validate. Skips agents that already have a checkpoint file. Ideal for a fresh migration or to continue from where a previous run left off.",
+        "userDescription": "Run the complete Angular→React migration pipeline",
+        "toolReferenceName": "ng2reactPipeline",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(play-circle)",
+        "tags": ["migration", "pipeline", "automation"],
+        "inputSchema": {
+          "type": "object",
+          "required": ["angularProjectPath", "reactOutputPath"],
+          "properties": {
+            "angularProjectPath": {
+              "type": "string",
+              "description": "Absolute path to the Angular source project."
+            },
+            "reactOutputPath": {
+              "type": "string",
+              "description": "Absolute path where the React project will be created."
+            },
+            "fromAgent": {
+              "type": "number",
+              "description": "Resume from this agent number (1-8). Default: 1 (start from beginning). Skips agents with existing checkpoints automatically.",
+              "minimum": 1,
+              "maximum": 8,
+              "default": 1
+            },
+            "dryRun": {
+              "type": "boolean",
+              "description": "If true, prints what each agent would do without writing any files. Default: false.",
+              "default": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile":           "tsc -p ./",
+    "watch":             "tsc -watch -p ./",
+    "package":           "vsce package",
+    "lint":              "tsc --noEmit"
+  },
+  "dependencies": {
+    "glob": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/glob":   "^8.1.0",
+    "@types/node":   "^20.0.0",
+    "@types/vscode": "^1.99.0",
+    "@vscode/vsce":  "^3.0.0",
+    "typescript":    "^5.5.4"
+  }
+}

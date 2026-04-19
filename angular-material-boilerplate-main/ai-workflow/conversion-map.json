@@ -1,0 +1,388 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Complete Angular 18 → React 18 conversion mapping for this project",
+  "project": {
+    "angular": {
+      "name": "bulletproof-angular",
+      "version": "18.2.0",
+      "source": "d:/Projects/angular-material-boilerplate-main/src"
+    },
+    "react": {
+      "name": "bulletproof-react",
+      "outputDir": "d:/Projects/react-app"
+    }
+  },
+  "components": [
+    {
+      "id": "app-root",
+      "angularFile": "src/app/app.component.ts",
+      "angularSelector": "app-root",
+      "reactFile": "src/App.tsx",
+      "reactExport": "default App",
+      "notes": "Root bootstrap component. Replace RouterOutlet with RouterProvider from react-router-dom."
+    },
+    {
+      "id": "layout",
+      "angularFile": "src/app/layout/layout/layout.component.ts",
+      "angularSelector": "app-layout",
+      "reactFile": "src/components/layout/LayoutComponent.tsx",
+      "reactExport": "default LayoutComponent",
+      "dependencies": {
+        "angular": ["BreakpointObserver", "MatDrawer", "MatToolbar", "MatSidenav", "MatList", "ThemeToggleComponent"],
+        "react": ["useMediaQuery", "Drawer", "AppBar", "Toolbar", "List", "ListItem", "ThemeToggle", "Outlet", "NavLink"]
+      },
+      "patterns": {
+        "isHandset$": "useMediaQuery(theme.breakpoints.down('md'))",
+        "router.navigate": "useNavigate()",
+        "router.url": "useLocation().pathname",
+        "routes loop for nav": "NAV_ITEMS.map(item => <ListItemButton component={NavLink} to={item.path}>)"
+      }
+    },
+    {
+      "id": "dashboard",
+      "angularFile": "src/app/protected/dashboard/dashboard.component.ts",
+      "angularSelector": "app-dashboard",
+      "reactFile": "src/pages/dashboard/DashboardComponent.tsx",
+      "reactExport": "default DashboardComponent",
+      "dependencies": {
+        "angular": ["MatGridList", "MatCard", "MatMenu"],
+        "react": ["Grid2", "Card", "CardHeader", "CardContent", "CardActions", "IconButton", "Menu", "MenuItem"]
+      },
+      "patterns": {
+        "MatGridList cols": "Grid2 container with responsive xs/sm/md props",
+        "MatCard": "Card + CardHeader + CardContent"
+      }
+    },
+    {
+      "id": "drag-drop",
+      "angularFile": "src/app/protected/drag-drop/drag-drop.component.ts",
+      "angularSelector": "app-drag-drop",
+      "reactFile": "src/pages/drag-drop/DragDropComponent.tsx",
+      "reactExport": "default DragDropComponent",
+      "dependencies": {
+        "angular": ["CdkDragDrop", "CdkDrag", "CdkDropList", "moveItemInArray", "transferArrayItem"],
+        "react": ["DndContext", "SortableContext", "useSortable", "arrayMove", "@dnd-kit/core", "@dnd-kit/sortable"]
+      },
+      "patterns": {
+        "cdkDropListConnectedTo": "DndContext with multiple droppable areas",
+        "moveItemInArray": "arrayMove from @dnd-kit/sortable",
+        "transferArrayItem": "manual splice between two state arrays in onDragEnd"
+      }
+    },
+    {
+      "id": "table",
+      "angularFile": "src/app/protected/table/table.component.ts",
+      "angularSelector": "app-table",
+      "reactFile": "src/pages/table/TableComponent.tsx",
+      "reactExport": "default TableComponent",
+      "dependencies": {
+        "angular": ["MatTable", "MatPaginator", "MatSort", "TableDataSource"],
+        "react": ["DataGrid from @mui/x-data-grid"]
+      },
+      "patterns": {
+        "MatTableDataSource": "useState for rows + client-side DataGrid",
+        "MatPaginator": "DataGrid built-in pagination (pageSizeOptions prop)",
+        "MatSort": "DataGrid built-in sorting (sortModel prop)",
+        "displayedColumns": "columns: GridColDef[] array"
+      },
+      "extraPackages": ["@mui/x-data-grid"]
+    },
+    {
+      "id": "address-form",
+      "angularFile": "src/app/protected/address-form/address-form.component.ts",
+      "angularSelector": "app-address-form",
+      "reactFile": "src/pages/address-form/AddressFormComponent.tsx",
+      "reactExport": "default AddressFormComponent",
+      "dependencies": {
+        "angular": ["ReactiveFormsModule", "FormBuilder", "Validators", "MatInput", "MatSelect", "MatRadio"],
+        "react": ["react-hook-form", "zod", "@hookform/resolvers/zod", "TextField", "Select", "RadioGroup", "FormControl"]
+      },
+      "formFields": [
+        { "name": "company",    "type": "text",   "validators": [] },
+        { "name": "firstName",  "type": "text",   "validators": ["required"] },
+        { "name": "lastName",   "type": "text",   "validators": ["required"] },
+        { "name": "address",    "type": "text",   "validators": ["required"] },
+        { "name": "address2",   "type": "text",   "validators": [] },
+        { "name": "city",       "type": "text",   "validators": ["required"] },
+        { "name": "state",      "type": "select", "validators": ["required"] },
+        { "name": "postalCode", "type": "text",   "validators": ["required"] },
+        { "name": "shipping",   "type": "radio",  "validators": ["required"] }
+      ],
+      "patterns": {
+        "FormBuilder.group": "useForm({ resolver: zodResolver(schema) })",
+        "Validators.required": "z.string().min(1, 'Required')",
+        "formControl.invalid && formControl.touched": "errors.fieldName?.message",
+        "form.valid": "formState.isValid"
+      }
+    },
+    {
+      "id": "tree",
+      "angularFile": "src/app/protected/tree/tree.component.ts",
+      "angularSelector": "app-tree",
+      "reactFile": "src/pages/tree/TreeComponent.tsx",
+      "reactExport": "default TreeComponent",
+      "dependencies": {
+        "angular": ["MatTree", "MatTreeModule", "FlatTreeControl", "MatTreeFlattener"],
+        "react": ["SimpleTreeView", "TreeItem from @mui/x-tree-view"]
+      },
+      "patterns": {
+        "FlatTreeControl + TreeFlattener": "Recursive renderTree function with SimpleTreeView",
+        "hasChild predicate": "node.children?.length > 0 check in render"
+      },
+      "extraPackages": ["@mui/x-tree-view"]
+    },
+    {
+      "id": "theme-toggle",
+      "angularFile": "src/app/shared/components/theme-toggle/theme-toggle.component.ts",
+      "angularSelector": "app-theme-toggle",
+      "reactFile": "src/components/shared/ThemeToggle.tsx",
+      "reactExport": "default ThemeToggle",
+      "dependencies": {
+        "angular": ["localStorage", "document.body.classList", "prefers-color-scheme"],
+        "react": ["useThemeMode hook", "ThemeContext", "IconButton", "Brightness4Icon", "Brightness7Icon"]
+      },
+      "patterns": {
+        "document.body.classList.add/remove": "ThemeContext mode state",
+        "localStorage.setItem": "localStorage.setItem inside toggleTheme",
+        "window.matchMedia": "useMediaQuery('(prefers-color-scheme: dark)')"
+      }
+    }
+  ],
+  "routing": {
+    "angularFile": "src/app/app.routes.ts",
+    "reactFile": "src/router/index.tsx",
+    "navConfigFile": "src/router/nav-config.ts",
+    "routes": [
+      { "angular": "/",            "react": "/",            "redirect": "/dashboard" },
+      { "angular": "/dashboard",   "react": "/dashboard",   "component": "DashboardComponent" },
+      { "angular": "/drag-drop",   "react": "/drag-drop",   "component": "DragDropComponent" },
+      { "angular": "/table",       "react": "/table",       "component": "TableComponent" },
+      { "angular": "/address-form","react": "/address-form","component": "AddressFormComponent" },
+      { "angular": "/tree",        "react": "/tree",        "component": "TreeComponent" },
+      { "angular": "/**",          "react": "*",            "redirect": "/dashboard" }
+    ]
+  },
+  "theming": {
+    "angularFiles": ["src/theme/m3-theme.scss", "src/styles.scss", "src/theme/_custom_classes.scss"],
+    "reactFiles": ["src/theme/theme.ts", "src/theme/ThemeContext.tsx", "src/theme/GlobalStyles.tsx"],
+    "patterns": {
+      "mat.define-theme": "createTheme({ palette: { mode } })",
+      "body.dark-theme class toggle": "ThemeContext mode → MUI palette.mode",
+      "BreakpointObserver": "useMediaQuery(theme.breakpoints.down('md'))",
+      "@include mat.all-component-themes": "ThemeProvider wraps entire app"
+    }
+  },
+  "testing": {
+    "angularFramework": "karma + jasmine",
+    "reactFramework": "vitest + @testing-library/react",
+    "specFileMapping": [
+      {
+        "angular": "src/app/app.component.spec.ts",
+        "react": "src/App.test.tsx"
+      },
+      {
+        "angular": "src/app/layout/layout/layout.component.spec.ts",
+        "react": "src/components/layout/LayoutComponent.test.tsx"
+      },
+      {
+        "angular": "src/app/protected/dashboard/dashboard.component.spec.ts",
+        "react": "src/pages/dashboard/DashboardComponent.test.tsx"
+      },
+      {
+        "angular": "src/app/protected/drag-drop/drag-drop.component.spec.ts",
+        "react": "src/pages/drag-drop/DragDropComponent.test.tsx"
+      },
+      {
+        "angular": "src/app/protected/table/table.component.spec.ts",
+        "react": "src/pages/table/TableComponent.test.tsx"
+      },
+      {
+        "angular": "src/app/protected/address-form/address-form.component.spec.ts",
+        "react": "src/pages/address-form/AddressFormComponent.test.tsx"
+      },
+      {
+        "angular": "src/app/protected/tree/tree.component.spec.ts",
+        "react": "src/pages/tree/TreeComponent.test.tsx"
+      },
+      {
+        "angular": "src/app/shared/components/theme-toggle/theme-toggle.component.spec.ts",
+        "react": "src/components/shared/ThemeToggle.test.tsx"
+      }
+    ],
+    "apiMapping": {
+      "TestBed.configureTestingModule": "render() from @testing-library/react",
+      "TestBed.createComponent": "render(<Component />)",
+      "fixture.detectChanges()": "(not needed — React auto-renders)",
+      "fixture.componentInstance": "use screen queries instead",
+      "expect(compiled.querySelector(...))": "expect(screen.getByRole(...))",
+      "spyOn": "vi.fn() / vi.spyOn()",
+      "describe / it / expect": "describe / it / expect (same API)",
+      "beforeEach": "beforeEach (same API)"
+    }
+  },
+  "environment": {
+    "angularFiles": ["src/environments/environment.ts", "src/environments/environment.development.ts"],
+    "reactFile": "src/config/env.ts",
+    "envVarsFile": ".env",
+    "mapping": {
+      "environment.production": "import.meta.env.PROD",
+      "environment.apiUrl": "import.meta.env.VITE_API_URL",
+      "environment.version": "import.meta.env.VITE_APP_VERSION"
+    }
+  },
+  "services": {
+    "description": "Angular @Injectable services → React hooks / Zustand / Context / axios API modules",
+    "agentDoc": "ai-workflow/agents/03b-services-agent.md",
+    "patterns": {
+      "@Injectable (no HTTP, no BehaviorSubject)": "Plain TS module or custom hook in src/hooks/",
+      "@Injectable with BehaviorSubject state": "Zustand store in src/store/<name>Store.ts",
+      "@Injectable shared via DI (no HTTP)": "React Context + Provider in src/context/",
+      "@Injectable with HttpClient": "Axios API module in src/api/<resource>.ts"
+    }
+  },
+  "http": {
+    "description": "Angular HttpClient + interceptors → axios",
+    "agentDoc": "ai-workflow/agents/03c-http-agent.md",
+    "patterns": {
+      "HttpClient.get/post/put/delete": "apiClient.get/post/put/delete from src/api/client.ts",
+      "HttpInterceptor": "axios.interceptors.request/response in src/api/client.ts",
+      "HTTP services": "src/api/<resource>.ts + src/hooks/use<Resource>.ts",
+      "HttpParams / HttpHeaders": "axios config.params / config.headers"
+    }
+  },
+  "pipes": {
+    "description": "Angular pipes → utility functions in src/utils/",
+    "agentDoc": "ai-workflow/agents/03d-pipes-agent.md",
+    "builtinMap": {
+      "date:'short'": "formatDate(date, 'short') from src/utils/formatters.ts",
+      "currency:'USD'": "formatCurrency(price) from src/utils/formatters.ts",
+      "number:'1.2-2'": "formatNumber(n, '1.2-2') from src/utils/formatters.ts",
+      "percent": "formatPercent(n) from src/utils/formatters.ts",
+      "uppercase": "str.toUpperCase()",
+      "lowercase": "str.toLowerCase()",
+      "titlecase": "toTitleCase(str) from src/utils/formatters.ts",
+      "slice:0:5": "arr.slice(0, 5)",
+      "json": "JSON.stringify(obj, null, 2)",
+      "async": "useState + useEffect subscription",
+      "keyvalue": "Object.entries(obj).map(([k, v]) => ...)"
+    },
+    "customPipes": "Each @Pipe class → utility function in src/utils/<pipeName>.ts"
+  },
+  "directives": {
+    "description": "Angular directives → JSX / hooks / components",
+    "agentDoc": "ai-workflow/agents/03e-directives-agent.md",
+    "patterns": {
+      "*ngIf / @if": "{condition && <Component />}",
+      "*ngFor / @for": "{items.map(item => <Li key={item.id} />)}",
+      "*ngSwitch / @switch": "Ternary chain or switch expression",
+      "Attribute directive (@HostBinding style)": "MUI sx prop or styled() component",
+      "DOM directive (autoFocus, clickOutside)": "Custom hook in src/hooks/use<Name>.ts",
+      "Permission directive (*appHasRole)": "Wrapper component in src/components/shared/",
+      "Validator directive (NG_VALIDATORS)": "Zod .refine() in feature schema"
+    }
+  },
+  "guards": {
+    "description": "Angular route guards and resolvers → React Router v6",
+    "agentDoc": "ai-workflow/agents/03f-guards-agent.md",
+    "patterns": {
+      "CanActivateFn (auth)": "<ProtectedRoute> in src/components/shared/ProtectedRoute.tsx",
+      "CanActivateFn (role)": "loader() with redirect() in src/router/index.tsx",
+      "CanDeactivateFn (unsaved)": "useBlocker hook in src/hooks/useUnsavedChangesGuard.ts",
+      "CanLoadFn / CanMatchFn": "React.lazy + loader in route config",
+      "Resolve (data prefetch)": "loader() function + useLoaderData() in React Router v6.4+"
+    }
+  },
+  "stateManagement": {
+    "description": "Angular state patterns → React equivalents",
+    "agentDoc": "ai-workflow/agents/03g-state-agent.md",
+    "patterns": {
+      "NgRx (actions/reducers/effects/selectors)": "@reduxjs/toolkit slice + createAsyncThunk + useAppSelector",
+      "BehaviorSubject service state": "Zustand store with devtools + persist middleware",
+      "Akita EntityStore / Query": "Zustand normalized entity store",
+      "NgXs @State class + @Action": "@reduxjs/toolkit slice",
+      "Component-local state": "useState / useReducer"
+    }
+  },
+  "advancedForms": {
+    "description": "Angular advanced reactive form patterns",
+    "agentDoc": "ai-workflow/agents/03h-forms-advanced-agent.md",
+    "patterns": {
+      "FormArray + push/removeAt": "useFieldArray from react-hook-form",
+      "Nested FormGroup (fb.group in fb.group)": "Nested Zod object + dot-path register (e.g. 'address.street')",
+      "AsyncValidatorFn": "RHF validate: async (v) => ... option OR Zod async superRefine",
+      "Cross-field validator (group-level)": "Zod .superRefine(({ field1, field2 }, ctx) => ...)"
+    }
+  },
+  "animations": {
+    "description": "Angular animations → CSS transitions or Framer Motion",
+    "patterns": {
+      "Simple enter/leave (fadeIn, slideIn)": "CSS transition on className toggle",
+      "Complex multi-state animations": "Framer Motion <motion.div> with variants",
+      "trigger() / state() / transition()": "Framer Motion AnimatePresence + motion.div"
+    },
+    "extraPackages": ["framer-motion"]
+  },
+  "injectionTokens": {
+    "description": "Angular InjectionToken<T> → React Context",
+    "patterns": {
+      "new InjectionToken<T>('description')": "React.createContext<T>(defaultValue)",
+      "inject(TOKEN)": "useContext(TokenContext)",
+      "providers: [{ provide: TOKEN, useValue: val }]": "<TokenContext.Provider value={val}>"
+    }
+  },
+  "packages": {
+    "remove": [
+      "@angular/animations",
+      "@angular/cdk",
+      "@angular/common",
+      "@angular/compiler",
+      "@angular/core",
+      "@angular/forms",
+      "@angular/material",
+      "@angular/material-moment-adapter",
+      "@angular/platform-browser",
+      "@angular/platform-browser-dynamic",
+      "@angular/router",
+      "zone.js",
+      "karma",
+      "karma-chrome-launcher",
+      "karma-coverage",
+      "karma-jasmine",
+      "karma-jasmine-html-reporter",
+      "@angular-devkit/build-angular",
+      "@angular/cli",
+      "@angular/compiler-cli"
+    ],
+    "add": {
+      "dependencies": {
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "@mui/material": "^5.16.7",
+        "@mui/icons-material": "^5.16.7",
+        "@mui/x-data-grid": "^7.18.0",
+        "@mui/x-tree-view": "^7.18.0",
+        "@emotion/react": "^11.13.3",
+        "@emotion/styled": "^11.13.0",
+        "react-router-dom": "^6.26.2",
+        "react-hook-form": "^7.53.0",
+        "zod": "^3.23.8",
+        "@hookform/resolvers": "^3.9.0",
+        "@dnd-kit/core": "^6.1.0",
+        "@dnd-kit/sortable": "^8.0.0",
+        "@dnd-kit/utilities": "^3.2.2"
+      },
+      "devDependencies": {
+        "vite": "^5.4.8",
+        "@vitejs/plugin-react": "^4.3.2",
+        "vitest": "^2.1.2",
+        "@testing-library/react": "^16.0.1",
+        "@testing-library/user-event": "^14.5.2",
+        "@testing-library/jest-dom": "^6.5.0",
+        "jsdom": "^25.0.1",
+        "@types/react": "^18.3.11",
+        "@types/react-dom": "^18.3.1",
+        "typescript": "^5.5.4"
+      }
+    }
+  }
+}
